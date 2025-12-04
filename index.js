@@ -4,6 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db.js");
 const authRoutes = require("./routes/authRoutes.js");
+const taskRoutes = require("./routes/taskRoutes.js");
 
 dotenv.config();
 
@@ -19,7 +20,7 @@ app.use(express.json()); // to parse JSON body
 // Routes
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api/tasks", taskRoutes);
 // Health check
 app.get("/", (req, res) => {
   res.send("API is running...");
